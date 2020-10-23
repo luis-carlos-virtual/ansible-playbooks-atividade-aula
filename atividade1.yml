@@ -1,0 +1,10 @@
+---
+- name: Atividade1
+  hosts: pwd
+  tasks:
+    - name: Atualizar cache alpine
+      command: apk update
+      when: ansible_os_family == "Alpine"
+    - name: Atualizar cache debian
+      command: apt update
+      when: ansible_os_family == "Debian"
