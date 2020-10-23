@@ -1,0 +1,13 @@
+---
+- name: Atividade3
+  hosts: pwd
+  tasks:
+  - name: copie um arquivo de texto do control node para o host remoto
+    copy:
+      src: /root/arquivo.txt
+      dest: /root/arquivo.txt
+  - name: copie um arquivo de texto de uma pasta remota do host para outra pasta dentro do mesmo o host
+    copy:
+      src: /root/arquivo.txt
+      dest: /root/arquivo.edit
+      remote_src: yes
