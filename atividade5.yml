@@ -1,0 +1,28 @@
+---
+- name: Atividade5-banco
+  hosts: banco
+  tasks:
+  - name: Start a container postgres
+    community.general.docker_container:
+      name: database
+      image: postgres:latest
+	  env:
+	    POSTGRES_PASSWORD: "mysecretpassword"
+	    
+- name: Atividade5-nginx
+  hosts: nginx
+  tasks:
+  - name: Start a container Nginx
+    community.general.docker_container:
+      name: web
+      image: nginx:latest 
+      ports:
+      - "8081:80"
+
+- name: Atividade5-show containers
+  hosts: pwd
+  tasks:
+  - name: Imprima na tela do control node quais os containers rodando em todos os hosts
+    command: docker ps
+	register: cmd_print
+  - debug: var=cmd_print.stdout_lines
