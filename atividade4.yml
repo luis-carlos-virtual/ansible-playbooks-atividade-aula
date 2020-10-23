@@ -1,0 +1,14 @@
+---
+- name: Atividade4
+  hosts: pwd
+  tasks:
+  - name: Crie um arquivo de texto dentro do host remoto com as permissões 644
+    file:
+      path: /root/arquivo2.txt
+      state: touch
+      mode: '0644'
+  - name: Crie uma pasta no host remoto e configure suas permissões para 755
+    file:
+      path: /root/new-dir
+      state: directory
+      mode: '0755'	  
