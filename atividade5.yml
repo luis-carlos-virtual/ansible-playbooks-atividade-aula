@@ -6,9 +6,9 @@
     community.general.docker_container:
       name: database
       image: postgres:latest
-	  env:
-	    POSTGRES_PASSWORD: "mysecretpassword"
-	    
+      env:
+        POSTGRES_PASSWORD: "mysecretpassword"
+
 - name: Atividade5-nginx
   hosts: nginx
   tasks:
@@ -24,5 +24,5 @@
   tasks:
   - name: Imprima na tela do control node quais os containers rodando em todos os hosts
     command: docker ps
-	register: cmd_print
+    register: cmd_print
   - debug: var=cmd_print.stdout_lines
