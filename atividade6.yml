@@ -1,0 +1,9 @@
+---
+- name: Atividade6
+  hosts: pwd
+  tasks:
+  - name: Imprima na tela do control node os ips dos hosts remotos
+    command: hostname -i
+    register: cmd_print
+  - debug: var=cmd_print.stdout_lines
+  - debug: var=ansible_default_ipv4.address
